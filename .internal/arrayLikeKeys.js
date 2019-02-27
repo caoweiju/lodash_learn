@@ -21,15 +21,16 @@ function arrayLikeKeys(value, inherited) {
   const isType = !isArr && !isArg && !isBuff && isTypedArray(value)
   const skipIndexes = isArr || isArg || isBuff || isType
   const length = value.length
-  const result = new Array(skipIndexes ? length : 0)
+  const result = new Array(skipIndexes ? length : 0) // new Array传的参数如果是单个表示长度 多个的话表示元素
   let index = skipIndexes ? -1 : length
   while (++index < length) {
     result[index] = `${index}`
   }
-  for (const key in value) {
+  for (const key in value) { // for in 配合 hasOwnProperty 来遍历当前数组的自身属性 排除原型链上的属性
     if ((inherited || hasOwnProperty.call(value, key)) &&
         !(skipIndexes && (
            // Safari 9 has enumerable `arguments.length` in strict mode.
+           // 严格模式上 safari9 会把函数的隐式参数arguments 的length属性设置为可枚举的 需要排除
            (key == 'length' ||
            // Skip index properties.
            isIndex(key, length))

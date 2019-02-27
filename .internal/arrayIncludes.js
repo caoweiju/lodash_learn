@@ -11,6 +11,7 @@ import baseIndexOf from './baseIndexOf.js'
  */
 function arrayIncludes(array, value) {
   const length = array == null ? 0 : array.length
+  // 利用 逻辑运算符 && 的算路运算 和 !! 双逻辑非运算来获取布尔值
   return !!length && baseIndexOf(array, value, 0) > -1
 }
 
