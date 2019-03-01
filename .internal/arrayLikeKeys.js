@@ -4,7 +4,7 @@ import isIndex from './isIndex.js'
 import isTypedArray from '../isTypedArray.js'
 
 /** Used to check objects for own properties. */
-const hasOwnProperty = Object.prototype.hasOwnProperty
+const hasOwnProperty = Object.prototype.hasOwnProperty   // 提取出来 简写方便 配合call的方法来传入thisArg
 
 /**
  * Creates an array of the enumerable property names of the array-like `value`.

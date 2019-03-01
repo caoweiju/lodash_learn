@@ -11,6 +11,7 @@ import eq from '../eq.js'
  * @param {*} value The value to assign.
  */
 function assignMergeValue(object, key, value) {
+    // 判断添加这个key对应的value的添加是二选一：1. value存在且object[key]不等于value 2.value不存在但是object[key] 不存在
   if ((value !== undefined && !eq(object[key], value)) ||
       (value === undefined && !(key in object))) {
     baseAssignValue(object, key, value)
