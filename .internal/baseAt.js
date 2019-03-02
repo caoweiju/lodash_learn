@@ -13,7 +13,7 @@ function baseAt(object, paths) {
   const length = paths.length
   const result = new Array(length)
   const skip = object == null
-
+    // 获取对象中的一部分数据
   while (++index < length) {
     result[index] = skip ? undefined : get(object, paths[index])
   }

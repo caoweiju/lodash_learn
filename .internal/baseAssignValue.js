@@ -9,6 +9,7 @@
  */
 function baseAssignValue(object, key, value) {
   if (key == '__proto__') {
+      // 如果是隐式原型的话 需要定义为可配置可枚举
     Object.defineProperty(object, key, {
       'configurable': true,
       'enumerable': true,

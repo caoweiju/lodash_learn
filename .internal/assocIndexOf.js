@@ -10,6 +10,7 @@ import eq from '../eq.js'
  */
 function assocIndexOf(array, key) {
   let { length } = array
+  // 找到数组中的的对应元素  数组中的元素数据需要是key-value pairs
   while (length--) {
     if (eq(array[length][0], key)) {
       return length

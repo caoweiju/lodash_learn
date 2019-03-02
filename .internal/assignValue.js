@@ -17,6 +17,7 @@ function assignValue(object, key, value) {
 
   if (!(hasOwnProperty.call(object, key) && eq(objValue, value))) {
     if (value !== 0 || (1 / value) == (1 / objValue)) {
+        // 没有看到这块的逻辑是什么？
       baseAssignValue(object, key, value)
     }
   } else if (value === undefined && !(key in object)) {
