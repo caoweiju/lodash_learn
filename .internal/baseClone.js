@@ -155,6 +155,8 @@ function initCloneArray(array) {
  */
 function baseClone(value, bitmask, customizer, key, object, stack) {
   let result
+  // 当有多个值需要判断的时候 使用二进制 0001 0010 0100 1000 的按位与&操作，
+  // 得到对应的值变成0或者自身，可以取代布尔值只有两种情况不够用的问题
   const isDeep = bitmask & CLONE_DEEP_FLAG
   const isFlat = bitmask & CLONE_FLAT_FLAG
   const isFull = bitmask & CLONE_SYMBOLS_FLAG
