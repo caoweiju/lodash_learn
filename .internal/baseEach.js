@@ -10,7 +10,12 @@ import isArrayLike from '../isArrayLike.js'
  * @returns {Array|Object} Returns `collection`.
  */
 function baseEach(collection, iteratee) {
-  if (collection == null) {
+    // 为什么每次判断参数是不是没有正确传入都是使用 == null 而不是 === undefined
+    /**
+     * null 表示 "没有对象"，即该处不应该有值。【引用语义上没有】 可以被转化为0
+     * undefined 表示"缺少值"，【值语义上缺少】就是此处应该有一个值，但是还没有赋值。而函数调用时缺省参数应该是undefined
+     */
+  if (collection == null) { 
     return collection
   }
   if (!isArrayLike(collection)) {

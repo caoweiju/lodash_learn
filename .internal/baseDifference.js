@@ -19,12 +19,13 @@ const LARGE_ARRAY_SIZE = 200
  * @returns {Array} Returns the new array of filtered values.
  */
 function baseDifference(array, values, iteratee, comparator) {
+    // 对于let  const的使用接线很清楚 需要再次被赋值的使用let const定义的变量不能第二次[除了定义时]出现在 赋值运算符 = 的左边
   let includes = arrayIncludes
   let isCommon = true
   const result = []
   const valuesLength = values.length
 
-  if (!array.length) {
+  if (!array.length) { // 判断长度为0的简单写法ß
     return result
   }
   if (iteratee) {
@@ -39,6 +40,8 @@ function baseDifference(array, values, iteratee, comparator) {
     isCommon = false
     values = new SetCache(values)
   }
+  // label 只能和 break continue一起使用 在循环中可以使用两者，在块级中只能使用break
+  // 本例使用label也就是需要跳出两层的循环 所以使用label的话可以跳出道定义好的位置
   outer:
   for (let value of array) {
     const computed = iteratee == null ? value : iteratee(value)

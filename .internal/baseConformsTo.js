@@ -11,12 +11,12 @@ function baseConformsTo(object, source, props) {
   if (object == null) {
     return !length
   }
-  object = Object(object)
+  object = Object(object) // 作为方法调用时 等同于 new Object()
   while (length--) {
     const key = props[length]
     const predicate = source[key]
     const value = object[key]
-
+    // key in object 这是会判断原型链上是不是存在的
     if ((value === undefined && !(key in object)) || !predicate(value)) {
       return false
     }
