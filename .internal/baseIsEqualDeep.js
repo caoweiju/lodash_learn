@@ -37,6 +37,7 @@ function baseIsEqualDeep(object, other, bitmask, customizer, equalFunc, stack) {
   let objTag = objIsArr ? arrayTag : getTag(object)
   let othTag = othIsArr ? arrayTag : getTag(other)
 
+  // '[object Arguments]' 的唯一情况就是把 arguments 对象直接使用了
   objTag = objTag == argsTag ? objectTag : objTag
   othTag = othTag == argsTag ? objectTag : othTag
 
