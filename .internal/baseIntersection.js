@@ -18,7 +18,7 @@ function baseIntersection(arrays, iteratee, comparator) {
   const includes = comparator ? arrayIncludesWith : arrayIncludes
   const length = arrays[0].length
   const othLength = arrays.length
-  const caches = new Array(othLength)
+  const caches = new Array(othLength) // 传入一个参数的时候就是长度，多个参数的时候就是元素内容
   const result = []
 
   let array

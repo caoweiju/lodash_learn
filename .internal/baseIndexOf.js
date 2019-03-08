@@ -12,7 +12,7 @@ import strictIndexOf from './strictIndexOf.js'
  * @returns {number} Returns the index of the matched value, else `-1`.
  */
 function baseIndexOf(array, value, fromIndex) {
-  return value === value
+  return value === value  // 不严格等于自身的目前自由 NaN
     ? strictIndexOf(array, value, fromIndex)
     : baseFindIndex(array, baseIsNaN, fromIndex)
 }

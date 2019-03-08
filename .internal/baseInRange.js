@@ -7,7 +7,7 @@
  * @param {number} end The end of the range.
  * @returns {boolean} Returns `true` if `number` is in the range, else `false`.
  */
-function baseInRange(number, start, end) {
+function baseInRange(number, start, end) {  // 考虑start end参数不是顺序传入的情况
   return number >= Math.min(start, end) && number < Math.max(start, end)
 }
 

@@ -10,7 +10,7 @@
  * @returns {Object} Returns `object`.
  */
 function baseFor(object, iteratee, keysFunc) {
-  const iterable = Object(object)
+  const iterable = Object(object)  // Object(object) is the same to === new Object()
   const props = keysFunc(object)
   let { length } = props
   let index = -1
